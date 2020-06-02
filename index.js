@@ -9,8 +9,8 @@ const title = document.querySelector("#title");
 title.style.color = "red";
 document.title = "I own you now"; */
 
-function handleResize(){
-    console.log("I have been resized")
+function handleResize(event){
+    console.log(event);
 }
 
 window.addEventListener("resize", handleResize); //여기서 function에 ()붙이면 "즉시 실행하라"라는 뜻이므로 붙이지 않는다.
