@@ -4,6 +4,7 @@ console.log(title);
 //Document Object Module 이것을 통해 자바스크립트는 html에 있는 모든 요소를 가져온다. 그리고 이것을 객체로 바꿀 것이다. html태그를 가져다가 객체로 만든다. 자바스크립트로 html을 바꿀 수 있다. 
 */
 
+/*
 const title = document.querySelector("#title");
 /*title.innerHTML = "Hi! From JS";
 title.style.color = "red";
@@ -21,5 +22,14 @@ function handleClick() {
  title.style.color = "blue";
 }
 
+/*
 title.addEventListener("click", handleClick);
 // 클릭하면 빨간색으로 바뀐다.
+
+*/
+
+if(10>5){  //'==='는 좌우가 같은지 확인하는 뜻
+    console.log("hi");
+} else {
+    console.log("ho");
+}
