@@ -14,3 +14,4 @@ function handleResize(event){
 }
 
 window.addEventListener("resize", handleResize); //여기서 function에 ()붙이면 "즉시 실행하라"라는 뜻이므로 붙이지 않는다.
+// 이렇게 써서 출력하면 event가 발생할 때마다 이벤트 객체가 호출된다.
