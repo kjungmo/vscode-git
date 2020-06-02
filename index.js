@@ -34,7 +34,7 @@ if(10>5){  //'==='는 좌우가 같은지 확인하는 뜻
     console.log("ho");
 }
 
-const age = promt("How old are you?")
+const age = prompt("How old are you?")
 
 if(age >= 18 && age <= 21) {
     console.log('you can drink but you should not')
