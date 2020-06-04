@@ -60,16 +60,16 @@ function handleClick() {
 }
 */
 const CLICKED_CLASS = "clicked";
-
+/*
 function handleClick() {
-    const currentClass = title.className;
-    if(currentClass !== CLICKED_CLASS){
-        title.classList.add(CLICKED_CLASS);
-    } else {
+    const hasClass = title.classList.contains(CLICKED_CLASS);
+    if(hasClass){
         title.classList.remove(CLICKED_CLASS);
+    } else {
+        title.classList.add(CLICKED_CLASS);
     }
 }
-
+*/  // 위에가 너무 길어서 toggle 써서 아래와 같이 만든다.
 function init() {
     //title.style.color = BASE_COLOR;
     title.addEventListener("click", handleClick);
