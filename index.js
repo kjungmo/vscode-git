@@ -46,7 +46,7 @@ if(age >= 18 && age <= 21) {
 */
 
 const title = document.querySelector("#title"); //queryselector 많이 사용할 예정이다. id를 찾으렴녀 #를 붙이고 class찾으려면 .을 붙인다
-
+/*
 const BASE_COLOR = "rgb(52, 73, 94)";
 const OTHER_COLOR = "#bdc3c7";
 
@@ -58,9 +58,9 @@ function handleClick() {
         title.style.color = BASE_COLOR;
     }
 }
-
+*/
 function init() {
-    title.style.color = BASE_COLOR;
-    title.addEventListener("click", handleClick);
+    //title.style.color = BASE_COLOR;
+    title.addEventListener("mouseenter", handleClick);
 }
 init();
