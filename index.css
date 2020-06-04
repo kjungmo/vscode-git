@@ -4,8 +4,9 @@ body{
 
 h1 {
   color: #34495e;
+  transition: color .5s ease-in-out;
 }
 
-.color {
+.clicked {
   color: #7f8c8d;
 }
