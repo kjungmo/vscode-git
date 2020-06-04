@@ -17,17 +17,17 @@ document.title = "I own you now"; */
 window.addEventListener("resize", handleResize); //여기서 function에 ()붙이면 "즉시 실행하라"라는 뜻이므로 붙이지 않는다.
 // 이렇게 써서 출력하면 event가 발생할 때마다 이벤트 객체가 호출된다.
 */
-
+/*
 function handleClick() {
  title.style.color = "blue";
 }
-
+*/
 /*
 title.addEventListener("click", handleClick);
 // 클릭하면 빨간색으로 바뀐다.
 
 */
-
+/*
 if(10>5){  //'==='는 좌우가 같은지 확인하는 뜻
     console.log("hi");
 } else {
@@ -43,3 +43,12 @@ if(age >= 18 && age <= 21) {
 } else {
     console.log("you cant")
 }
+*/
+
+const title = document.querySelector("#title"); //queryselector 많이 사용할 예정이다. id를 찾으렴녀 #를 붙이고 class찾으려면 .을 붙인다
+
+function handleClick() {
+    title.style.color = "blue";
+}
+
+title.addEventListener("click", handleClick);
