@@ -70,6 +70,11 @@ function handleClick() {
     }
 }
 */  // 위에가 너무 길어서 toggle 써서 아래와 같이 만든다.
+
+function handleClick() {
+    title.classList.toggle(CLICKED_CLASS);
+}
+
 function init() {
     //title.style.color = BASE_COLOR;
     title.addEventListener("click", handleClick);
