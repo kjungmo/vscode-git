@@ -6,11 +6,15 @@ const form = document.querySelector(".js-form"),
 const USER_LS = "currentUser",
     SHOWING_CN = "showing";
 
+function saveName(text){
+    localStorage.setItem(USER_LS, text); //입력한 것을 저장하게 해줌
+}   //localStorage는 URL을 기초로 동작한다. application(f12)에서 볼 수 있다.
 
 function handleSubmit(event){
     event.preventDefault();//event 의 default 동작을 막기위함(default동작으로 새로고침식이 되어서 사용자가 제출한 값이 다른데로 가기 때문이다. 이걸 만들어서 what~name? 에 값을 입력하면 값이 입력된 채로 화면이 변하지 않는다)
     const currentValue = input.value; //console.log해보면 input하는 value를 console에 나타내준다.
     paintGretting(currentValue); //currentValue의 텍스트를 paintGreeting 값으로 넣어주는것이다.
+    saveName(currentValue); // 값을 submit한다면 paintGreeting도 하지만 saveName도 currentValue값으로 해준다
 }
 
 function askForName(){
