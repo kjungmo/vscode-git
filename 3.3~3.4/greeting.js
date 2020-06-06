@@ -15,6 +15,7 @@ function handleSubmit(event){
     const currentValue = input.value; //console.log해보면 input하는 value를 console에 나타내준다.
     paintGretting(currentValue); //currentValue의 텍스트를 paintGreeting 값으로 넣어주는것이다.
     saveName(currentValue); // 값을 submit한다면 paintGreeting도 하지만 saveName도 currentValue값으로 해준다
+    //이렇게 까지 하고나면 사용자가 값을 입력한 그대로 페이지에 출력되어 남아있게 된다. 
 }
 
 function askForName(){
