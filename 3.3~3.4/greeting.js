@@ -3,10 +3,13 @@ const form = document.querySelector(".js-form"),
     greeting = document.querySelector(".js-greetings");
 
 
-const USER_LS = "currentUser"
+const USER_LS = "currentUser",
+    SHOWING_CN = "showing";
 
 function paintGretting(text){
-    greeting.innerText = `tello ${text}`
+    form.classList.remove(SHOWING_CN); //텍스트를 색칠하려면 form을 숨겨야한다
+    greeting.classList.add(SHOWING_CN)
+    greeting.innerText = `Hello ${text}`;
 }
 
 function loadName(){
@@ -14,7 +17,7 @@ function loadName(){
     if(currentUser === null){  // 유저가 없는 경우
 
     } else {   // 유저가 있는 경우
-
+        paintGretting(currentUser);
     }
 }
 
