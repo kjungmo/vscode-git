@@ -48,8 +48,12 @@ function loadToDos(){   //2) 로컬 스토리지에서 가져오는 함수, TODO
         const parsedToDos = JSON.parse(loadedToDos);    // 새로고침해도 localStorage에 저장된 toDos를 불러오고자 한다. JSON을 또 사용함.(맨밑에 JSON 각주)
         parsedToDos.forEach(function(toDo){  //forEach는 기본적으로 함수를 실행하는데 array 에 담겨있는 것들 각각에 한번씩 함수를 실행시켜 준다. forEach 괄호 안에 바로 함수만들어 넣을 수 있다. 
                                             // forEach 괄호 안에 들어가는 함수는 parsedToDos에 있는 것들 각각에 대해 실행해줄것임. function 은 밖에서 생성되어도 호출 가능하다.
-            console.log(toDo.text) //일단은 toDo의 text를 console.log하겠다 . 새로고침 하면 parsedToDos에 들어있는 각각의 text들이 console.log된걸 볼 수 있다(콘솔창)
-        })   //이 loadToDo는 맨 위의 빈 array 인 toDos를 로딩된 값으로 채워주고자 한다.
+            //console.log(toDo.text) //일단은 toDo의 text를 console.log하겠다 . 새로고침 하면 parsedToDos에 들어있는 각각의 text들이 console.log된걸 볼 수 있다(콘솔창)
+            paintToDo(toDo.text);    //실제로는 paintToDo를 사용해 toDo의 텍스트를 화면에 띄울 것임
+        });   //이 loadToDo는 맨 위의 빈 array 인 toDos를 로딩된 값으로 채워주고자 한다.
+        // 최종적으로 toDos를 가져온 뒤, parsed로써 가져온 것을 자바스크립트 object로 변환하고
+        // 각각에 대해서 paintToDo function이 실행된다. toDo.text에 대해 실행된다.
+        // 이로서 화면에 출력될 뿐더러, html부분에서 id도 각각 1, 2, 3이 매겨져 있다.
     } 
 }
 
