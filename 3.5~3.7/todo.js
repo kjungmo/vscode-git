@@ -5,13 +5,21 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 const TODOS_LS = 'toDos';
 
 function paintToDo(text){
-    console.log(text);
+    const li = document.createElement("li"); //js에서 html 수정 않고도 li라는 것을 생성해주는 작업이다. 괄호안의 li 를 입력하는게 중요 
+    const delBtn = document.createElement("button");
+    delBtn.value = "❌"; // 삭제 버튼 만들고 이모지로 나타내주는 것
+    const span = document.createElement("span");
+    span.innerText = text
+    li.appendChild(span); //appendchild는 무엇인가를 상위(father) element에 넣어준다
+    li.appendChild(delBtn);  //여기까지는 빈 li를 생성해서 그 안에 span과 delBtn넣음
+    toDoList.appendChild(li); //그리고는 만든 li를 넣고 appendchild todolist 해줌
 }
 
 function handleSubmit(event){ // event 넣어줘서 prevent 할거다
     event.preventDefault();
     const currentValue = toDoInput.value;
     paintToDo(currentValue);
+    toDoInput.value = ""; //이것을 통해 입력한 값을 저장하고 placeholder칸에서 지워주는역할
 }
 
 function loadToDos(){   //2) 로컬 스토리지에서 가져오는 함수, TODOS_LS 도 선언해줘야 한다.
