@@ -6,6 +6,10 @@ const TODOS_LS = 'toDos';
 
 const toDos = []; //toDo가 여러개 생길 수 있기 때문에 array사용. 시작에 이렇게 해두자. 그리고나서는 toDo가 생성되면 array에 추가되도록 한다.
 
+function deleteToDo(event.target){   // 삭제 부분의 첫 단계로 html부분의 li를 지우는 작업을 수행, delBtn이 생성된 자리 아래에 addEventlistener를 생성(Click)
+
+}
+
 function saveToDos(){  //위의 toDos를 가져와서 저장하는 함수다.
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos)); // JSON.stringify는 자바스크립트 object를 string으로 바꿔준다.
 }
@@ -16,6 +20,7 @@ function paintToDo(text){
     const span = document.createElement("span");
     const newId = toDos.length + 1; //맨 처음엔 이 toDos array가 비어있으니까 id 값은 1 일것임.
     delBtn.innerText = "❌"; // 삭제 버튼 만들고 이모지로 나타내주는 것
+    delBtn.addEventListener("click", deleteToDo);
     span.innerText = text
     li.appendChild(delBtn); //appendchild는 무엇인가를 상위(father) element에 넣어준다
     li.appendChild(span);  //여기까지는 빈 li를 생성해서 그 안에 span과 delBtn넣음
