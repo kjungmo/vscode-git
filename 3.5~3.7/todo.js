@@ -4,16 +4,20 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = 'toDos';
 
-const toDos = []; //toDo가 여러개 생길 수 있기 때문에 array사용. 시작에 이렇게 해두자. 그리고나서는 toDo가 생성되면 array에 추가되도록 한다.
+let toDos = []; //toDo가 여러개 생길 수 있기 때문에 array사용. 시작에 이렇게 해두자. 그리고나서는 toDo가 생성되면 array에 추가되도록 한다.
 
 function deleteToDo(event){   // 삭제 부분의 첫 단계로 html부분의 li를 지우는 작업을 수행, delBtn이 생성된 자리 아래에 addEventlistener를 생성(Click)
     //console.dir(event.target); target사용하면 해당 이벤트가 발생한 것을 특정지을 수 있다.
     //console.log(event.target.parentNode); 위의 console.dir로 콘솔창에서 부모값을 찾아서 찍어보자
     const btn = event.target;
     const li = btn.parentNode; //지워야할 li요소 관련
-    toDoList.removeChild(li);
-
-}
+    toDoList.removeChild(li); //여기까지만 하면 새로고침 시 지워진 toDo가 다시 화면에 표시됨
+    const cleanToDos = toDos.filter(function(toDo) {
+        return toDo.id !== parseInt(li.id); // li 에 없는 id인 toDos를 체크하고자 한다.(지우고자 하는 toDo이기 때문)
+    }); // filter는 array의 모든 아이템을 통해 함수를 실행, 그리고 true인 아이템들만 가지고 새로운 array를 만든다
+    toDos = cleanToDos // 지우고 남은 toDo를 바꾸고 그다음에 saveToDos사용하여 저장한다
+    saveToDos();
+} 
 
 function saveToDos(){  //위의 toDos를 가져와서 저장하는 함수다.
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos)); // JSON.stringify는 자바스크립트 object를 string으로 바꿔준다.
