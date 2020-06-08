@@ -4,6 +4,8 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = 'toDos';
 
+const toDos = [];
+
 function paintToDo(text){
     const li = document.createElement("li"); //js에서 html 수정 않고도 li라는 것을 생성해주는 작업이다. 괄호안의 li 를 입력하는게 중요 
     const delBtn = document.createElement("button");
