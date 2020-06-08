@@ -7,7 +7,7 @@ const TODOS_LS = 'toDos';
 const toDos = []; //toDo가 여러개 생길 수 있기 때문에 array사용. 시작에 이렇게 해두자. 그리고나서는 toDo가 생성되면 array에 추가되도록 한다.
 
 function saveToDos(){  //위의 toDos를 가져와서 저장하는 함수다.
-    localStorage.setItem(TODOS_LS, toDos);
+    localStorage.setItem(TODOS_LS, JSON.stringify(toDos)); // JSON.stringify는 자바스크립트 object를 string으로 바꿔준다.
 }
 
 function paintToDo(text){
@@ -30,7 +30,9 @@ function paintToDo(text){
     toDos.push(toDoObj); //이렇게 push를 써서 array안에 element 하나를 넣어줄 수 있다. 
        // 이 경우에는 toDos array 안에 toDoObj를 넣게 된다. 이런식으로 toDos를 저장하는 이유는 localStorage에도 저장해야 하기 때문.
        //그래서 function saveToDos를 만들게 된다.
-    saveToDos(); // 저장기능 호출 순서는 push이후로. 전에 호출하면 저장 안됨
+    saveToDos(); // 저장기능 호출 순서는 push이후로. 전에 호출하면 저장 안됨 근데 여기까지만 하고 어플리케이션 가면 저장이 {object Object}라고 이상하게 
+                //되어있을 것이다. 자바스크립트는 local storage에 있는 모든 데이터를 string으로 저장하려고 하기 때문.그래서 
+                // 우리의 object를 string이 되도록 만들어야 한다. 그 기능이 바로 JSON.stringify이다.
 }
 
 function handleSubmit(event){ // event 넣어줘서 prevent 할거다
