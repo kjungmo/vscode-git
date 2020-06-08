@@ -22,6 +22,7 @@ function paintToDo(text){
         id: toDos.length + 1 //맨 처음엔 이 toDos array가 비어있으니까 id 값은 1 일것임.
     };
     toDos.push(toDoObj); //이렇게 push를 써서 array안에 element 하나를 넣어줄 수 있다. 
+       // 이 경우에는 toDos array 안에 toDoObj를 넣게 된다.
 }
 
 function handleSubmit(event){ // event 넣어줘서 prevent 할거다
@@ -32,8 +33,8 @@ function handleSubmit(event){ // event 넣어줘서 prevent 할거다
 }
 
 function loadToDos(){   //2) 로컬 스토리지에서 가져오는 함수, TODOS_LS 도 선언해줘야 한다.
-    const toDos = localStorage.getItem(TODOS_LS);
-    if(toDos !== null){ // else가 쓰이지 않은 이유는 toDos와 null이 같아도 form은 늘 showing이어야 하기 때문이다
+    const loadedToDos = localStorage.getItem(TODOS_LS);
+    if(loadedToDos !== null){ // else가 쓰이지 않은 이유는 toDos와 null이 같아도 form은 늘 showing이어야 하기 때문이다
 
     } 
 }
