@@ -45,7 +45,11 @@ function handleSubmit(event){ // event 넣어줘서 prevent 할거다
 function loadToDos(){   //2) 로컬 스토리지에서 가져오는 함수, TODOS_LS 도 선언해줘야 한다.
     const loadedToDos = localStorage.getItem(TODOS_LS);
     if(loadedToDos !== null){ // else가 쓰이지 않은 이유는 toDos와 null이 같아도 form은 늘 showing이어야 하기 때문이다
-
+        const parsedToDos = JSON.parse(loadedToDos);    // 새로고침해도 localStorage에 저장된 toDos를 불러오고자 한다. JSON을 또 사용함.(맨밑에 JSON 각주)
+        parsedToDos.forEach(function(toDo){  //forEach는 기본적으로 함수를 실행하는데 array 에 담겨있는 것들 각각에 한번씩 함수를 실행시켜 준다. forEach 괄호 안에 바로 함수만들어 넣을 수 있다. 
+                                            // forEach 괄호 안에 들어가는 함수는 parsedToDos에 있는 것들 각각에 대해 실행해줄것임. function 은 밖에서 생성되어도 호출 가능하다.
+            console.log(toDo.text) //일단은 toDo의 text를 console.log하겠다 . 새로고침 하면 parsedToDos에 들어있는 각각의 text들이 console.log된걸 볼 수 있다(콘솔창)
+        })   //이 loadToDo는 맨 위의 빈 array 인 toDos를 로딩된 값으로 채워주고자 한다.
     } 
 }
 
@@ -55,3 +59,8 @@ function init(){
 }
 
 init();
+
+// JSON은 'JavaScript Object Notation'의 준말로 데이터를 전달할 때, 
+//              자바스크립트가 그것을 다룰 수 있도록 object로 바꿔주는 기능이다
+//              그래서 자바스크립트의 object를 string으로 변환해주기도 하고
+//              string을 object로 변환해주기도 한다.
