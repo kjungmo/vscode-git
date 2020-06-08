@@ -10,8 +10,8 @@ function paintToDo(text){
     delBtn.innerText = "❌"; // 삭제 버튼 만들고 이모지로 나타내주는 것
     const span = document.createElement("span");
     span.innerText = text
-    li.appendChild(span); //appendchild는 무엇인가를 상위(father) element에 넣어준다
-    li.appendChild(delBtn);  //여기까지는 빈 li를 생성해서 그 안에 span과 delBtn넣음
+    li.appendChild(delBtn); //appendchild는 무엇인가를 상위(father) element에 넣어준다
+    li.appendChild(span);  //여기까지는 빈 li를 생성해서 그 안에 span과 delBtn넣음
     toDoList.appendChild(li); //그리고는 만든 li를 넣고 appendchild todolist 해줌
  //이 결과로 엔터를 눌렀을 때, li를 생성하고, delete버튼과  span을 생성한다
  // span과 delete버튼을 li안에 append하고, 마지막으로 li를 ul에다 append 하게 된다.
