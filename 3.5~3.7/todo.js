@@ -6,6 +6,10 @@ const TODOS_LS = 'toDos';
 
 const toDos = []; //toDo가 여러개 생길 수 있기 때문에 array사용. 시작에 이렇게 해두자. 그리고나서는 toDo가 생성되면 array에 추가되도록 한다.
 
+function saveToDos(){  //위의 toDos를 가져와서 저장하는 함수다.
+    localStorage.setItem(TODOS_LS, toDos);
+}
+
 function paintToDo(text){
     const li = document.createElement("li"); //js에서 html 수정 않고도 li라는 것을 생성해주는 작업이다. 괄호안의 li 를 입력하는게 중요 
     const delBtn = document.createElement("button");
@@ -25,6 +29,7 @@ function paintToDo(text){
     };
     toDos.push(toDoObj); //이렇게 push를 써서 array안에 element 하나를 넣어줄 수 있다. 
        // 이 경우에는 toDos array 안에 toDoObj를 넣게 된다. 이런식으로 toDos를 저장하는 이유는 localStorage에도 저장해야 하기 때문.
+       //그래서 function saveToDos를 만들게 된다.
 }
 
 function handleSubmit(event){ // event 넣어줘서 prevent 할거다
