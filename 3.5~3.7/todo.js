@@ -7,7 +7,7 @@ const TODOS_LS = 'toDos';
 function paintToDo(text){
     const li = document.createElement("li"); //js에서 html 수정 않고도 li라는 것을 생성해주는 작업이다. 괄호안의 li 를 입력하는게 중요 
     const delBtn = document.createElement("button");
-    delBtn.value = "❌"; // 삭제 버튼 만들고 이모지로 나타내주는 것
+    delBtn.innerText = "❌"; // 삭제 버튼 만들고 이모지로 나타내주는 것
     const span = document.createElement("span");
     span.innerText = text
     li.appendChild(span); //appendchild는 무엇인가를 상위(father) element에 넣어준다
