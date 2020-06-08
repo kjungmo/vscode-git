@@ -6,7 +6,12 @@ const TODOS_LS = 'toDos';
 
 const toDos = []; //toDo가 여러개 생길 수 있기 때문에 array사용. 시작에 이렇게 해두자. 그리고나서는 toDo가 생성되면 array에 추가되도록 한다.
 
-function deleteToDo(event.target){   // 삭제 부분의 첫 단계로 html부분의 li를 지우는 작업을 수행, delBtn이 생성된 자리 아래에 addEventlistener를 생성(Click)
+function deleteToDo(event){   // 삭제 부분의 첫 단계로 html부분의 li를 지우는 작업을 수행, delBtn이 생성된 자리 아래에 addEventlistener를 생성(Click)
+    //console.dir(event.target); target사용하면 해당 이벤트가 발생한 것을 특정지을 수 있다.
+    //console.log(event.target.parentNode); 위의 console.dir로 콘솔창에서 부모값을 찾아서 찍어보자
+    const btn = event.target;
+    const li = btn.parentNode; //지워야할 li요소 관련
+    toDoList.removeChild(li);
 
 }
 
