@@ -9,20 +9,22 @@ const toDos = []; //toDo가 여러개 생길 수 있기 때문에 array사용. �
 function paintToDo(text){
     const li = document.createElement("li"); //js에서 html 수정 않고도 li라는 것을 생성해주는 작업이다. 괄호안의 li 를 입력하는게 중요 
     const delBtn = document.createElement("button");
-    delBtn.innerText = "❌"; // 삭제 버튼 만들고 이모지로 나타내주는 것
     const span = document.createElement("span");
+    const newId = toDos.length + 1; //맨 처음엔 이 toDos array가 비어있으니까 id 값은 1 일것임.
+    delBtn.innerText = "❌"; // 삭제 버튼 만들고 이모지로 나타내주는 것
     span.innerText = text
     li.appendChild(delBtn); //appendchild는 무엇인가를 상위(father) element에 넣어준다
     li.appendChild(span);  //여기까지는 빈 li를 생성해서 그 안에 span과 delBtn넣음
+    li.id = newId; // id를 toDos에 줌으로써 나중에 지울때 쓰인다.
     toDoList.appendChild(li); //그리고는 만든 li를 넣고 appendchild todolist 해줌
  //이 결과로 엔터를 눌렀을 때, li를 생성하고, delete버튼과  span을 생성한다
  // span과 delete버튼을 li안에 append하고, 마지막으로 li를 ul에다 append 하게 된다.
     const toDoObj = {
         text: text,
-        id: toDos.length + 1 //맨 처음엔 이 toDos array가 비어있으니까 id 값은 1 일것임.
+        id: newId
     };
     toDos.push(toDoObj); //이렇게 push를 써서 array안에 element 하나를 넣어줄 수 있다. 
-       // 이 경우에는 toDos array 안에 toDoObj를 넣게 된다.
+       // 이 경우에는 toDos array 안에 toDoObj를 넣게 된다. 이런식으로 toDos를 저장하는 이유는 localStorage에도 저장해야 하기 때문.
 }
 
 function handleSubmit(event){ // event 넣어줘서 prevent 할거다
