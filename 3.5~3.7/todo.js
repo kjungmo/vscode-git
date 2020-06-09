@@ -19,7 +19,7 @@ function deleteToDo(event){   // 삭제 부분의 첫 단계로 html부분의 li
     saveToDos();
 } 
 
-function saveToDos(){  //위의 toDos를 가져와서 저장하는 함수다.
+function saveToDos(){  //위의 toD os를 가져와서 저장하는 함수다.
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos)); // JSON.stringify는 자바스크립트 object를 string으로 바꿔준다.
 }
 
@@ -27,13 +27,13 @@ function paintToDo(text){
     const li = document.createElement("li"); //js에서 html 수정 않고도 li라는 것을 생성해주는 작업이다. 괄호안의 li 를 입력하는게 중요 
     const delBtn = document.createElement("button");
     const span = document.createElement("span");
-    const newId = toDos.length + 1; //맨 처음엔 이 toDos array가 비어있으니까 id 값은 1 일것임.
-    delBtn.innerText = "❌"; // 삭제 버튼 만들고 이모지로 나타내주는 것
+    const newId = toDos.length + 1; //toDos(empty array)의 상태에 따라 번호를 매김
+    delBtn.innerText = "❌"; // <button>"✖"</button>, button tag 안에 이모티콘 넣기
     delBtn.addEventListener("click", deleteToDo);
     span.innerText = text
     li.appendChild(delBtn); //appendchild는 무엇인가를 상위(father) element에 넣어준다
     li.appendChild(span);  //여기까지는 빈 li를 생성해서 그 안에 span과 delBtn넣음
-    li.id = newId; // id를 toDos에 줌으로써 나중에 지울때 쓰인다.
+    li.id = newId; // 각각의 <li> tag에 id를 할당함 , id를 toDos에 줌으로써 나중에 지울때 쓰인다. 
     toDoList.appendChild(li); //그리고는 만든 li를 넣고 appendchild todolist 해줌
  //이 결과로 엔터를 눌렀을 때, li를 생성하고, delete버튼과  span을 생성한다
  // span과 delete버튼을 li안에 append하고, 마지막으로 li를 ul에다 append 하게 된다.
