@@ -23,7 +23,7 @@ body{
     display: block;
   }
 
-  bgImage{
+  .bgImage{
     position: absolute;
     top:0;
     left:0;
