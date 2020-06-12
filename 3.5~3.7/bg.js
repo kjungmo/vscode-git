@@ -9,7 +9,8 @@ function handleImgload(){
 function paintImage(imgNumber){
     const image = new Image();
     image.src = `images/${imgNumber + 1}.jpg`;
-    body.appendChild(image);
+    image.classList.add("bgImage");
+    body.prepend(image);  //appendChild하면 배경밖에 안보인다.
 }
 
 
