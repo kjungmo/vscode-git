@@ -2,10 +2,14 @@ const body = document.querySelector("body");
 
 const IMG_NUMBER = 7;
 
+function handleImgload(){
+    console.log('finished loading');
+}
+
 function paintImage(imgNumber){
     const image = new Image();
     image.src = `images/${imgNumber + 1}.jpg`;
-    body.appendChild(image)
+    body.appendChild(image);
 }
 
 
